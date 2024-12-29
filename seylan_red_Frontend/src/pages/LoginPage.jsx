@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../services/Users';  
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();  // This hook will be used for redirecting the user
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    // Simple validation
-    if (!username || !password) {
-      setError('Please fill in all fields.');
-      return;
-    }
-
-    // Mock authentication
-    if (username === 'testuser' && password === 'password123') {
-      navigate('/home');
-    } else {
-      setError('Invalid username or password.');
+  const handleLogin = async () => {
+    const userData = { UserName: userName, Password: password };  // Prepare the data to be sent to the backend
+    try {
+      const result = await loginUser(userData);  // Call the updated loginUser function
+      if (result.message === "Login successful!") {  // Check if the login was successful
+        navigate("/home");  // Redirect to the home page after successful login
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Invalid credentials, please try again.");
     }
   };
 
@@ -31,27 +27,24 @@ const LoginPage = () => {
           <img src="/logo.png" alt="Logo" className="mx-auto w-24" />
           <h1 className="text-xl font-bold mt-2 text-red-700">Seylan RED Login</h1>
         </div>
-        {error && (
-          <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">
-            {error}
-          </div>
-        )}
-        <form onSubmit={handleLogin}>
+
+        <form onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1" htmlFor="username">
+            <label className="block text-sm font-medium mb-1 text-red-700" htmlFor="username">
               User Name
             </label>
             <input
               id="username"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-red-500"
               placeholder="Enter your username"
             />
           </div>
+
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-1" htmlFor="password">
+            <label className="block text-sm font-medium mb-1 text-red-700" htmlFor="password">
               Password
             </label>
             <input
@@ -63,6 +56,7 @@ const LoginPage = () => {
               placeholder="Enter your password"
             />
           </div>
+
           <button
             type="submit"
             className="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600"
@@ -70,7 +64,8 @@ const LoginPage = () => {
             Sign In
           </button>
         </form>
-        <p className="mt-4 text-sm text-center">
+
+        <p className="mt-4 text-sm text-center text-red-700">
           If you don't have an account please{' '}
           <button
             className="text-red-500 underline"
