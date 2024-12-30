@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className="min-h-screen bg-gray-100">
       <Navbar />
       <section id="home" className="text-center py-20 bg-gray-200">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Seylan RED</h1>
+        <h1 className="text-4xl font-bold mb-4 text-red-600">Welcome to Seylan RED</h1>
         <p className="text-lg mb-6">Your Trusted Banking Partner</p>
         <button className="bg-red-600 text-white px-6 py-2 rounded">
           Explore Our Services

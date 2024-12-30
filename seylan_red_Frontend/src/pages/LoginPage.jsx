@@ -12,6 +12,7 @@ const LoginPage = () => {
     try {
       const result = await loginUser(userData);  // Call the updated loginUser function
       if (result.message === "Login successful!") {  // Check if the login was successful
+        localStorage.setItem("userId", result.user.id); // Store the user ID in localStorage
         navigate("/home");  // Redirect to the home page after successful login
       }
     } catch (error) {
