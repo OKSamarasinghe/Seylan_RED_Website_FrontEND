@@ -2,6 +2,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 const ServicesPage = () => {
   const navigate = useNavigate();
@@ -40,6 +42,7 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
+      <SeylanFooter />
     </div>
   );
 };

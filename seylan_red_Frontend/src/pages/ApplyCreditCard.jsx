@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Navbar from "../components/Navbar";
 import { useNavigate } from 'react-router-dom';
 import { applyForCreditCard } from '../services/CreditCardService';
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 const ApplyCreditCard = () => {
   const navigate = useNavigate();
@@ -141,6 +143,7 @@ const ApplyCreditCard = () => {
           </form>
         </div>
       </section>
+      <SeylanFooter />
     </div>
   );
 };

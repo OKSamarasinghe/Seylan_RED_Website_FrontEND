@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { saveAs } from "file-saver";
 import { fillTemplate } from "../utils/wordUtils";
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 const LoanApplicationPage = () => {
   const [formData, setFormData] = useState({
@@ -62,6 +64,7 @@ const LoanApplicationPage = () => {
           </button>
         </form>
       </section>
+      <SeylanFooter />
     </div>
   );
 };

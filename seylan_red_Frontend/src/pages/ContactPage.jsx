@@ -1,6 +1,8 @@
 // src/pages/ContactPage.jsx
 import React from "react";
 import Navbar from "../components/Navbar";
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 const ContactPage = () => {
   return (
@@ -29,6 +31,7 @@ const ContactPage = () => {
           </button>
         </div>
       </section>
+      <SeylanFooter />
     </div>
   );
 };

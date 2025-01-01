@@ -1,6 +1,8 @@
 // src/pages/AboutPage.jsx
 import React from "react";
 import Navbar from "../components/Navbar";
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 const AboutPage = () => {
   return (
@@ -19,6 +21,7 @@ const AboutPage = () => {
           and convenient banking services. We are dedicated to transforming banking experiences through innovation and trust.
         </p>
       </section>
+      <SeylanFooter />
     </div>
   );
 };

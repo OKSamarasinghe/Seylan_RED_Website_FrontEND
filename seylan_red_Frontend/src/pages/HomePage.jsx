@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 // Import banner images
 import first from "../assets/first.png";
@@ -43,7 +45,7 @@ const HomePage = () => {
         <p className="text-lg mb-6">Your Trusted Banking Partner for Every Step of Life</p>
         <button
           onClick={() => navigate('/services')}
-          className="bg-white text-red-600 px-6 py-3 rounded shadow hover:bg-red-100"
+          className="bg-white text-red-600 px-6 py-3 rounded shadow hover:bg-red-200"
         >
           Explore Our Services
         </button>
@@ -53,7 +55,7 @@ const HomePage = () => {
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
-        <h2 className="text-center text-3xl font-bold mb-8">Our Services</h2>
+        <h2 className="text-center text-3xl font-bold mb-8 text-red-600">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="bg-gray-100 shadow-lg p-6 text-center rounded-lg">
             <h3 className="text-xl font-semibold mb-2">Loans</h3>
@@ -71,12 +73,16 @@ const HomePage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-200">
-        <h2 className="text-center text-3xl font-bold mb-8">What Our Customers Say</h2>
+      <section className="py-20 bg-red-600">
+        <h2 className="text-center text-3xl font-bold mb-8 text-white">What Our Customers Say</h2>
         <div className="flex justify-center space-x-8">
           <div className="bg-white shadow-lg p-6 w-64 text-center rounded-lg">
             <p className="italic">"Seylan RED helped me secure my dream home with an easy and fast loan process!"</p>
             <strong>- Ravi M.</strong>
+          </div>
+          <div className="bg-white shadow-lg p-6 w-64 text-center rounded-lg">
+            <p className="italic">"The credit card rewards program is fantastic, and I get discounts on everything!"</p>
+            <strong>- Nisha S.</strong>
           </div>
           <div className="bg-white shadow-lg p-6 w-64 text-center rounded-lg">
             <p className="italic">"The credit card rewards program is fantastic, and I get discounts on everything!"</p>
@@ -87,7 +93,7 @@ const HomePage = () => {
 
       {/* Additional Section: Financial Tips */}
       <section className="py-20 bg-white">
-        <h2 className="text-center text-3xl font-bold mb-8">Financial Tips</h2>
+        <h2 className="text-center text-3xl font-bold mb-8 text-red-600">Financial Tips</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="bg-gray-100 shadow-lg p-6 text-center rounded-lg">
             <h3 className="text-xl font-semibold mb-2">Budgeting 101</h3>
@@ -105,46 +111,20 @@ const HomePage = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-100">
-        <h2 className="text-center text-3xl font-bold mb-8">Contact Us</h2>
-        <p className="text-center text-lg">Need assistance? Call us at <strong>123-456-789</strong> or email <strong>support@seylan.lk</strong>.</p>
+      <section id="contact" className="py-20 bg-red-600">
+        <h2 className="text-center text-3xl font-bold mb-8 text-white">Contact Us</h2>
+        <p className="text-center text-lg text-white">Need assistance? Call us at <strong>123-456-789</strong> or email <strong>support@seylan.lk</strong>.</p>
         <div className="flex justify-center mt-8">
           <button
             onClick={() => navigate('/contact')}
-            className="bg-red-600 text-white px-6 py-3 rounded shadow hover:bg-red-700"
+            className="bg-red-500 text-white px-6 py-3 rounded shadow hover:bg-red-700"
           >
             Contact Support
           </button>
         </div>
       </section>
 
-      {/* Footer Section */}
-      <footer className="bg-gray-800 text-white py-10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Seylan Bank PLC</h3>
-            <p>Seylan Towers, No 90, Galle Road,<br />Colombo 03. Sri Lanka.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-            <p>24 Hour Contact center (24x7 days):<br /><strong>+94 11 2 008 888</strong></p>
-            <p>Get answers about products & services, report lost cards, reset Internet & mobile banking passwords, and more.</p>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Get Latest Promotions</h3>
-            <p className="mb-4">Please enter your email address to signup for our Latest Promotions.</p>
-            <div className="flex space-x-2">
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="flex-1 px-4 py-2 rounded-l bg-white text-gray-800 border border-gray-300"
-              />
-              <button className="px-4 py-2 bg-red-600 text-white rounded-r hover:bg-red-700">Submit</button>
-            </div>
-          </div>
-        </div>
-        <p className="text-center text-sm mt-8">&copy; 2024 Seylan Bank PLC. All Rights Reserved.</p>
-      </footer>
+      <SeylanFooter />
     </div>
   );
 };

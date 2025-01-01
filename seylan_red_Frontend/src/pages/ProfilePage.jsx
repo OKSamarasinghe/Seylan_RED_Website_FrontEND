@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+import SeylanFooter from "../components/SeylanFooter"; // Import Footer
+
 
 const ProfilePage = () => {
   const userId = localStorage.getItem("userId");
@@ -61,6 +63,7 @@ const ProfilePage = () => {
           <p>Loading user details...</p>
         )}
       </section>
+      <SeylanFooter />
     </div>
   );
 };
