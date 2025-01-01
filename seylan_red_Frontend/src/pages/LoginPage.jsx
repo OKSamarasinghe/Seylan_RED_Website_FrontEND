@@ -1,28 +1,52 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../services/Users';  
+import { loginUser } from '../services/Users';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();  // This hook will be used for redirecting the user
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const userData = { UserName: userName, Password: password };  // Prepare the data to be sent to the backend
+    const userData = { UserName: userName, Password: password };
     try {
-      const result = await loginUser(userData);  // Call the updated loginUser function
-      if (result.message === "Login successful!") {  // Check if the login was successful
-        localStorage.setItem("userId", result.user.id); // Store the user ID in localStorage
-        navigate("/home");  // Redirect to the home page after successful login
+      const result = await loginUser(userData);
+      if (result.message === "Login successful!") {
+        localStorage.setItem("userId", result.user.id);
+
+        // Show success toast
+        toast.success("Successfully Logged In!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "colored",
+        });
+
+        // Redirect after a short delay
+        setTimeout(() => navigate("/home"), 3000);
       }
     } catch (error) {
       console.error("Login failed:", error);
-      alert("Invalid credentials, please try again.");
+      toast.error("Invalid credentials, please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "colored",
+      });
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-red-700">
+      <ToastContainer />
       <div className="bg-white p-8 rounded shadow-md w-96">
         <div className="text-center mb-4">
           <img src="/logo.png" alt="Logo" className="mx-auto w-24" />
