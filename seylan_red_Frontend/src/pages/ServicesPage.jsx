@@ -34,9 +34,11 @@ const ServicesPage = () => {
             </button>
           </div>
           <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-            <h3 className="text-xl font-semibold mb-2">Business Solutions</h3>
+            <h3 className="text-xl font-semibold mb-2">Make Transaction</h3>
             <p>Helping businesses grow with tailored banking solutions, including loans and credit facilities.</p>
-            <button className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+            <button 
+            onClick={()=> navigate('/make-transaction')}
+            className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
               Get Started
             </button>
           </div>

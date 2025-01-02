@@ -10,6 +10,7 @@ import ContactPage from "./pages/ContactPage";
 import ProfilePage from "./pages/ProfilePage";
 import LoanApplicationPage from "./pages/LoanApplicationPage";
 import ApplyCreditCard from './pages/ApplyCreditCard';
+import MakeTransaction from "./pages/MakeTransaction";  
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/apply-loan" element={<LoanApplicationPage />} />
         <Route path="/apply-credit-card" element={<ApplyCreditCard />} />
+        <Route path="/make-transaction" element={<MakeTransaction />} />
       </Routes>
     </Router>
   );
