@@ -15,6 +15,7 @@ export const loginUser = async (userData) => {
       }
   
       const data = await response.json();
+      console.log(data); // Log the response
       return data; // This will contain the user data and success message
     } catch (error) {
       console.error("Error logging in:", error);

@@ -14,6 +14,7 @@ const LoginPage = () => {
     try {
       const result = await loginUser(userData);
       if (result.message === "Login successful!") {
+
         localStorage.setItem("userId", result.user.id);
 
         // Show success toast

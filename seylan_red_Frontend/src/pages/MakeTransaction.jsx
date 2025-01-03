@@ -6,6 +6,7 @@ import { makeTransaction } from '../services/makeTransaction';
 
 const MakeTransaction = () => {
     const navigate = useNavigate();
+    const userId = localStorage.getItem('userId');
 
     const [formData, setFormData] = useState({
         accountNumber: '',
@@ -29,15 +30,17 @@ const MakeTransaction = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log(userId);
             const transactionData = {
-                accountNumber: formData.accountNumber.toString(), // Convert to string
-                branchName: formData.branchName,
-                receiverUserName: formData.receiverUserName,
-                amount: parseFloat(formData.amount), // Ensure the amount is a valid number
-                transactionType: formData.transactionType,
-                createdDate: formData.createdDate,
+                AccountNumber: formData.accountNumber, // Convert to string
+                BranchName: formData.branchName,
+                ReceiverUserName: formData.receiverUserName,
+                Amount: parseFloat(formData.amount), // Ensure the amount is a valid number
+                TransactionType: formData.transactionType,
+                CreatedDate: formData.createdDate,
+                userId: parseInt(userId),
             };
-
+            console.log(transactionData);
             const response = await makeTransaction(transactionData); // Call the API function
             alert('Transaction Successful!');
             navigate('/services');
